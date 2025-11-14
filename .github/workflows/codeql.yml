@@ -27,7 +27,7 @@ jobs:
         name: CodeQL Analysis
         strategy:
             matrix:
-                languages: ["actions"]
+                language: ["actions"]
         runs-on: ubuntu-latest
         permissions:
             contents: read
@@ -43,7 +43,7 @@ jobs:
               uses: github/codeql-action/init@v3
               with:
                   config-file: ./.github/codeql-config.yml
-                  languages: ${{ matrix.languages }}
+                  languages: ${{ matrix.language }}
 
             - name: Perform CodeQL analysis
               uses: github/codeql-action/analyze@v3
