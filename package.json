@@ -1,8 +1,8 @@
 {
 	"name": "@fdawgs/workflows",
-	"version": "0.0.1",
+	"version": "1.0.0",
 	"description": "@fdawgs' shareable GitHub Actions workflows",
-  	"private": true,
+	"private": true,
 	"keywords": [
 		"action",
 		"github",
