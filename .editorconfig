@@ -14,5 +14,5 @@ max_line_length = 80
 [*.{css,html,scss}]
 max_line_length = 120
 
-[*.{yaml,yml}]
+[*.{yml,yaml}]
 indent_style = space
