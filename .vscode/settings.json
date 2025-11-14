@@ -1,0 +1,8 @@
+{
+	"editor.defaultFormatter": "EditorConfig.EditorConfig",
+	"editor.formatOnSave": true,
+	"files.eol": "\n",
+	"gitlens.telemetry.enabled": false,
+	"npm.packageManager": "npm",
+	"redhat.telemetry.enabled": false
+}

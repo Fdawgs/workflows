@@ -1,0 +1,27 @@
+{
+	"name": "@fdawgs/workflows",
+	"version": "0.0.1",
+	"description": "@fdawgs' shareable GitHub Actions workflows",
+  	"private": true,
+	"keywords": [
+		"action",
+		"github",
+		"workflows"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Fdawgs/workflows.git"
+	},
+	"homepage": "https://github.com/Fdawgs/workflows",
+	"bugs": {
+		"url": "https://github.com/Fdawgs/workflows/issues"
+	},
+	"license": "MIT",
+	"author": "Frazer Smith <frazer.dev@icloud.com>",
+	"funding": "https://github.com/sponsors/Fdawgs",
+	"commitlint": {
+		"extends": [
+			"@commitlint/config-conventional"
+		]
+	}
+}
