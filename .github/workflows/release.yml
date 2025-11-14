@@ -33,6 +33,7 @@ jobs:
       - name: Run Optic
         uses: nearform-actions/optic-release-automation-action@9e3518763346efacba15d729d0faaa4cbd8fdd52 # v4.12.3
         with:
+          commit-message: "chore(release): release {version}"
           github-token: ${{ secrets.GITHUB_TOKEN }}
           notify-linked-issues: false
           publish-mode: none
