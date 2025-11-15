@@ -37,7 +37,7 @@ jobs:
             - name: Check out repo
               uses: actions/checkout@v5
               with:
-                  persist-credentials: false
+                persist-credentials: false
 
             - name: Dependency review
               uses: actions/dependency-review-action@3c4e3dcb1aa7874d2c16be7d79418e9b7efd6261 # v4.8.2
@@ -54,10 +54,10 @@ jobs:
             - name: Check out repo
               uses: actions/checkout@v5
               with:
-                  fetch-depth: 0
-                  persist-credentials: false
+                fetch-depth: 0
+                persist-credentials: false
 
             - name: Run Commitlint
               uses: wagoid/commitlint-github-action@b948419dd99f3fd78a6548d48f94e3df7f6bf3ed # v6.2.1
               with:
-                  configFile: ./package.json
+                configFile: ./package.json
