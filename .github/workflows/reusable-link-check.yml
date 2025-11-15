@@ -23,7 +23,7 @@ jobs:
               with:
                 # Skipping personal GitHub links as GitHub's rate limiting for unauthenticated requests is very low;
                 # these all exist in CHANGELOG.md but paths' globbing doesn't support the `!` negation operator for specific files
-                linksToSkip: "http://0.0.0.0, http://127.0.0.1, http://localhost, https://(?:www.|)github.com/Fdawgs/.*/(?:commit|issues|compare)/"
-                paths: "**/*.md"
+                linksToSkip: "http://0.0.0.0, http://127.0.0.1, http://localhost"
+                paths: "**/!(CHANGELOG).md"
                 requireHttps: true
                 retry: true
