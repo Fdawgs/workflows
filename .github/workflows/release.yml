@@ -6,36 +6,36 @@ name: Release
 on:
   workflow_dispatch:
     inputs:
-      semver:
-        description: 'The semver to use'
-        required: true
-        default: 'patch'
+        semver:
+            description: 'The semver to use'
+            required: true
+            default: 'patch'
   pull_request:
     types: [closed]
 
 permissions:
-  contents: read
+    contents: read
 
 jobs:
-  release:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      issues: write
-      pull-requests: write
-    steps:
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          check-latest: true
-          node-version: lts/*
+    release:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            issues: write
+            pull-requests: write
+        steps:
+            - name: Setup Node
+              uses: actions/setup-node@v6
+              with:
+                check-latest: true
+                node-version: lts/*
 
-      - name: Run Optic
-        uses: nearform-actions/optic-release-automation-action@9e3518763346efacba15d729d0faaa4cbd8fdd52 # v4.12.3
-        with:
-          commit-message: "chore(release): release {version}"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          notify-linked-issues: false
-          publish-mode: none
-          semver: ${{ github.event.inputs.semver }}
-          sync-semver-tags: true
+            - name: Run Optic
+              uses: nearform-actions/optic-release-automation-action@9e3518763346efacba15d729d0faaa4cbd8fdd52 # v4.12.3
+              with:
+                commit-message: "chore(release): release {version}"
+                github-token: ${{ secrets.GITHUB_TOKEN }}
+                notify-linked-issues: false
+                publish-mode: none
+                semver: ${{ github.event.inputs.semver }}
+                sync-semver-tags: true
