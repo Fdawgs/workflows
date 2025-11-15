@@ -8,7 +8,7 @@ on:
 
 jobs:
   lock-threads:
-    name: Lock Threads
+    name: Reusable Lock Threads
     runs-on: ubuntu-latest
     permissions:
       issues: write

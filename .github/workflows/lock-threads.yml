@@ -26,6 +26,7 @@ permissions:
 
 jobs:
     lock-threads:
+        name: Lock Threads
         permissions:
             issues: write
             pull-requests: write
