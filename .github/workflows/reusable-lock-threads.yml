@@ -1,4 +1,4 @@
-name: Lock Threads
+name: Reusable Lock Threads
 
 # **What it does**: Automatically locks inactive issues and pull requests.
 # **Why we have it**: Helps maintainers manage repository activity and reduce clutter.
