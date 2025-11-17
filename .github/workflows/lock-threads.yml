@@ -30,4 +30,4 @@ jobs:
         permissions:
             issues: write
             pull-requests: write
-        uses: ./.github/workflows/shared-lock-threads.yml
+        uses: ./.github/workflows/reusable-lock-threads.yml
