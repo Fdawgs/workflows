@@ -4,5 +4,6 @@
 	"files.eol": "\n",
 	"gitlens.telemetry.enabled": false,
 	"npm.packageManager": "npm",
-	"redhat.telemetry.enabled": false
+	"redhat.telemetry.enabled": false,
+	"telemetry.feedback.enabled": false
 }
