@@ -27,37 +27,12 @@ permissions:
     contents: read
 
 jobs:
-    dependency-review:
-        name: Dependency Review
-        if: github.event_name == 'pull_request'
-        runs-on: ubuntu-latest
+    code-quality:
+        name: Code Quality
+        uses: ./.github/workflows/reusable-code-quality.yml
         permissions:
             contents: read
-        steps:
-            - name: Check out repo
-              uses: actions/checkout@v6
-              with:
-                persist-credentials: false
-
-            - name: Dependency review
-              uses: actions/dependency-review-action@3c4e3dcb1aa7874d2c16be7d79418e9b7efd6261 # v4.8.2
-
-    commit-lint:
-        name: Lint Commit Messages
-        if: >
-            github.event_name == 'push' ||
-            (github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]')
-        runs-on: ubuntu-latest
-        permissions:
-            contents: read
-        steps:
-            - name: Check out repo
-              uses: actions/checkout@v6
-              with:
-                fetch-depth: 0
-                persist-credentials: false
-
-            - name: Run Commitlint
-              uses: wagoid/commitlint-github-action@b948419dd99f3fd78a6548d48f94e3df7f6bf3ed # v6.2.1
-              with:
-                configFile: ./package.json
+        secrets: inherit
+        with:
+            commitlint: true
+            lint: false

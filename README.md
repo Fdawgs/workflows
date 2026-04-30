@@ -12,6 +12,63 @@ For more information, including limitations, [see the GitHub Docs](https://docs.
 
 This repository contains reusable workflows that are used across multiple repositories maintained by @fdawgs. These workflows are designed to be generic enough to be used in other repositories with minimal modification.
 
+Reusuable workflows are prefixed with `reusable-` to distinguish them from regular workflows in this repository.
+
+## Example Usage
+
+### Using the Link Check workflow
+
+```yml
+name: Check Markdown for Broken Links
+
+concurrency:
+    group: link-check
+
+permissions:
+    contents: read
+
+jobs:
+    link-check:
+        name: Link Check
+        permissions:
+            contents: read
+        uses: fdawgs/workflows/.github/workflows/reusable-link-check.yml@v2
+```
+
+### Using the Code Quality workflow
+
+This workflow is not intended for use by external repositories as it is designed to be used in @fdawgs' Node.js projects and requires specific scripts to be defined in the `package.json` file. However, it can be used as a reference for creating reusable workflows for other types of projects.
+
+```yml
+name: CI
+
+permissions:
+    contents: read
+
+jobs:
+    code-quality:
+        name: Code Quality
+        uses: ./.github/workflows/reusable-code-quality.yml@v2
+        permissions:
+            contents: read
+        secrets: inherit
+        with:
+            commitlint: true
+            lint: false
+	unit-tests:
+		name: Unit Tests
+		needs: quality
+		runs-on: ubuntu-latest
+		steps:
+			- run: echo "Tests go here"
+```
+
+The workflow can be configured with the following inputs:
+- `commitlint`: A boolean value indicating whether to run commit message linting (default: `false`)
+- `lint`: A boolean value indicating whether to run linting (default: `false`)
+
+If `lint` is set to `true`, the workflow will run linting using ESLint, Prettier, and Licensee licensing checker, and requires a `package.json` file with the [following scripts](./.github/workflows/reusable-quality.yml#L86-L99).
+
 ## Contributing
 
 Contributions are welcome, and any help is greatly appreciated!
