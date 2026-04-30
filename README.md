@@ -52,12 +52,12 @@ jobs:
         with:
             commitlint: true
             lint: false
-	unit-tests:
-		name: Unit Tests
-		needs: code-quality
-		runs-on: ubuntu-latest
-		steps:
-			- run: echo "Tests go here"
+    unit-tests:
+        name: Unit Tests
+        needs: code-quality
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Tests go here"
 ```
 
 The workflow can be configured with the following inputs:
