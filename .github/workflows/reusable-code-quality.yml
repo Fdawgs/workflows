@@ -1,0 +1,98 @@
+name: Reusable Code Quality
+
+# **What it does**: Runs dependency review, commit message linting, and eslint/prettier/license checks.
+# **Why we have it**: Used to ensure code quality and compliance.
+
+on:
+  workflow_call:
+    inputs:
+      commitlint:
+        description: 'Set to true to lint commit messages.'
+        required: false
+        default: false
+        type: boolean
+      lint:
+        description: 'Set to true to run linting scripts.'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+    dependency-review:
+        name: Dependency Review
+        if: github.event_name == 'pull_request'
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+        steps:
+            - name: Check out repo
+              uses: actions/checkout@v6
+              with:
+                persist-credentials: false
+
+            - name: Dependency review
+              uses: actions/dependency-review-action@3c4e3dcb1aa7874d2c16be7d79418e9b7efd6261 # v4.8.2
+
+    commitlint:
+        name: Lint Commit Messages
+        # Dependabot PRs are excluded as they often have long commit messages that fail linting rules
+        if: >
+            inputs.commitlint == true &&
+            (
+              (github.event_name == 'push' && github.actor != 'dependabot[bot]') ||
+              (github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]')
+            )
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+        steps:
+            - name: Check out repo
+              uses: actions/checkout@v6
+              with:
+                fetch-depth: 0
+                persist-credentials: false
+
+            - name: Run Commitlint
+              uses: wagoid/commitlint-github-action@b948419dd99f3fd78a6548d48f94e3df7f6bf3ed # v6.2.1
+              with:
+                configFile: ./package.json
+
+    lint:
+        name: Lint Code
+        if: inputs.lint == true
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+        steps:
+            - name: Check out repo
+              uses: actions/checkout@v6
+              with:
+                  persist-credentials: false
+
+            - name: Setup Node
+              uses: actions/setup-node@v6
+              with:
+                  check-latest: true
+                  node-version-file: .nvmrc
+
+            - name: Install
+              # Force install to bypass OS/CPU checks; this job only lints
+              run: npm i -f --ignore-scripts
+
+            - name: Audit NPM package signatures and provenance attestations
+              run: npm audit signatures
+
+            - name: Run ESLint
+              run: npm run lint:eslint
+
+            - name: Run Prettier
+              run: npm run lint:prettier
+
+            - name: Run Licensee
+              run: npm run lint:licenses
+
+            - name: Run build
+              run: npm run build --if-present
+
+            - name: Run typecheck
+              run: npm run typecheck --if-present
