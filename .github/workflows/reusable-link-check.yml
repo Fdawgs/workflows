@@ -19,7 +19,7 @@ jobs:
                   persist-credentials: false
 
             - name: Run Linkinator
-              uses: JustinBeckwith/linkinator-action@af984b9f30f63e796ae2ea5be5e07cb587f1bbd9 # v2.3
+              uses: JustinBeckwith/linkinator-action@7b6b0bc671f6264e1a8daa4488a5bd91ce61dcd4 # v2.4.2
               with:
                 linksToSkip: "http://0.0.0.0"
                 paths: "**/!(CHANGELOG).md"
