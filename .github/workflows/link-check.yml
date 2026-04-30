@@ -33,8 +33,9 @@ on:
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
-  group: "${{ github.workflow }}-${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }} # Don't cancel pushes to main, only PRs
+    group: "${{ github.workflow }}-${{ github.event.pull_request.head.label || github.head_ref || github.ref }}"
+    # Only cancel in-progress runs for PRs; do not cancel for other events
+    cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 permissions:
     contents: read
