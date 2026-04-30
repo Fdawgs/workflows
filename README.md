@@ -12,7 +12,7 @@ For more information, including limitations, [see the GitHub Docs](https://docs.
 
 This repository contains reusable workflows that are used across multiple repositories maintained by @fdawgs. These workflows are designed to be generic enough to be used in other repositories with minimal modification.
 
-Reusuable workflows are prefixed with `reusable-` to distinguish them from regular workflows in this repository.
+Reusable workflows are prefixed with `reusable-` to distinguish them from regular workflows in this repository.
 
 ## Example Usage
 
@@ -20,9 +20,6 @@ Reusuable workflows are prefixed with `reusable-` to distinguish them from regul
 
 ```yml
 name: Check Markdown for Broken Links
-
-concurrency:
-    group: link-check
 
 permissions:
     contents: read
@@ -57,7 +54,7 @@ jobs:
             lint: false
 	unit-tests:
 		name: Unit Tests
-		needs: quality
+		needs: code-quality
 		runs-on: ubuntu-latest
 		steps:
 			- run: echo "Tests go here"
@@ -67,7 +64,7 @@ The workflow can be configured with the following inputs:
 - `commitlint`: A boolean value indicating whether to run commit message linting (default: `false`)
 - `lint`: A boolean value indicating whether to run linting (default: `false`)
 
-If `lint` is set to `true`, the workflow will run linting using ESLint, Prettier, and Licensee licensing checker, and requires a `package.json` file with the [following scripts](./.github/workflows/reusable-quality.yml#L86-L99).
+If `lint` is set to `true`, the workflow will run linting using ESLint, Prettier, and Licensee licensing checker, and requires a `package.json` file with the [following scripts](./.github/workflows/reusable-code-quality.yml).
 
 ## Contributing
 
