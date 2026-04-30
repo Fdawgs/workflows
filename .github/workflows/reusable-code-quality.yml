@@ -38,7 +38,7 @@ jobs:
         if: >
             !failure() &&
             !cancelled() &&
-            inputs.commit-lint == true &&
+            inputs.commitlint == true &&
             (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.user.login != 'dependabot[bot]'))
         runs-on: ubuntu-latest
         permissions:
