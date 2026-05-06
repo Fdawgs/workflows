@@ -36,3 +36,20 @@ jobs:
         with:
             commitlint: true
             lint: false
+
+    automerge:
+        name: Automerge Dependabot PRs
+        needs: [code-quality]
+        if: >
+            github.event_name == 'pull_request' &&
+            github.event.pull_request.head.repo.full_name == github.repository &&
+            github.event.pull_request.user.login == 'dependabot[bot]'
+        runs-on: ubuntu-latest
+        permissions:
+            pull-requests: write
+            contents: write
+        steps:
+            - uses: fastify/github-action-merge-dependabot@30c3f8f14a4f7b315ba38dbc1b793d27128fef82 # v3.12.0
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  merge-method: squash
