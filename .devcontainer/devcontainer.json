@@ -3,8 +3,8 @@
 {
 	"$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
 
-	"name": "Default Linux Universal",
-	"image": "mcr.microsoft.com/devcontainers/universal:2-linux",
+	"name": "Debian Bookworm",
+	"image": "mcr.microsoft.com/devcontainers/base:bookworm",
 
 	"customizations": {
 		"vscode": {
@@ -29,7 +29,6 @@
 	},
 	// Features to add to the dev container. More info: https://containers.dev/features
 	"features": {
-		"ghcr.io/devcontainers/features/git:1": {},
 		"ghcr.io/devcontainers/features/github-cli:1": {}
 	},
 	"remoteUser": "root"
