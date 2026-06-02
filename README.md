@@ -29,7 +29,7 @@ jobs:
         name: Link Check
         permissions:
             contents: read
-        uses: fdawgs/workflows/.github/workflows/reusable-link-check.yml@44826d838a90cd1bbbef4a51331bd91c51627962 # v2.1.1
+        uses: fdawgs/workflows/.github/workflows/reusable-link-check.yml@157c20f8c0ef03c36f2bdf7c53f76bed063f55b8 # v2.1.2
 ```
 
 ### Using the Code Quality workflow
@@ -45,7 +45,7 @@ permissions:
 jobs:
     code-quality:
         name: Code Quality
-        uses: fdawgs/workflows/.github/workflows/reusable-code-quality.yml@44826d838a90cd1bbbef4a51331bd91c51627962 # v2.1.1
+        uses: fdawgs/workflows/.github/workflows/reusable-code-quality.yml@157c20f8c0ef03c36f2bdf7c53f76bed063f55b8 # v2.1.2
         permissions:
             contents: read
         with:
