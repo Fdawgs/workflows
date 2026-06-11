@@ -1,5 +1,8 @@
 name: Reusable OSSF Scorecard Analysis
 
+# **What it does**: Runs OSSF Scorecard analysis on the repository and uploads the results.
+# **Why we have it**: Security scanning.
+
 on:
   workflow_call:
     inputs:
