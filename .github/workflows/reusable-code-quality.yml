@@ -4,18 +4,18 @@ name: Reusable Code Quality
 # **Why we have it**: Used to ensure code quality and compliance.
 
 on:
-  workflow_call:
-    inputs:
-      commitlint:
-        description: 'Set to true to lint commit messages.'
-        required: false
-        default: false
-        type: boolean
-      lint:
-        description: 'Set to true to run linting scripts.'
-        required: false
-        default: false
-        type: boolean
+    workflow_call:
+        inputs:
+            commitlint:
+                description: "Set to true to lint commit messages."
+                required: false
+                default: false
+                type: boolean
+            lint:
+                description: "Set to true to run linting scripts."
+                required: false
+                default: false
+                type: boolean
 
 jobs:
     dependency-review:
@@ -28,7 +28,7 @@ jobs:
             - name: Check out repo
               uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
               with:
-                persist-credentials: false
+                  persist-credentials: false
 
             - name: Dependency review
               uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
@@ -49,13 +49,13 @@ jobs:
             - name: Check out repo
               uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
               with:
-                fetch-depth: 0
-                persist-credentials: false
+                  fetch-depth: 0
+                  persist-credentials: false
 
             - name: Run Commitlint
               uses: wagoid/commitlint-github-action@b948419dd99f3fd78a6548d48f94e3df7f6bf3ed # v6.2.1
               with:
-                configFile: ./package.json
+                  configFile: ./package.json
 
     lint:
         name: Lint Code
