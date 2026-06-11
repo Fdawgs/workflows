@@ -6,6 +6,9 @@ name: Reusable Lock Threads
 on:
     workflow_call:
 
+permissions:
+    contents: read
+
 jobs:
     lock-threads:
         name: Reusable Lock Threads
