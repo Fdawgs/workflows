@@ -1,6 +1,7 @@
 # workflows
 
 [![GitHub release](https://img.shields.io/github/release/Fdawgs/workflows.svg)](https://github.com/Fdawgs/workflows/releases/latest/)
+[![OSSF Scorecard](https://api.scorecard.dev/projects/github.com/Fdawgs/workflows/badge)](https://ossf.github.io/scorecard-visualizer/#/projects/github.com/Fdawgs/workflows)
 
 > @fdawgs' reusable workflows
 
@@ -29,7 +30,7 @@ jobs:
         name: Link Check
         permissions:
             contents: read
-        uses: fdawgs/workflows/.github/workflows/reusable-link-check.yml@157c20f8c0ef03c36f2bdf7c53f76bed063f55b8 # v2.1.2
+        uses: fdawgs/workflows/.github/workflows/reusable-link-check.yml@15c09545397588f9a2ac47db6c6269520ebc983a # v2.2.0
 ```
 
 ### Using the Code Quality workflow
@@ -45,7 +46,7 @@ permissions:
 jobs:
     code-quality:
         name: Code Quality
-        uses: fdawgs/workflows/.github/workflows/reusable-code-quality.yml@157c20f8c0ef03c36f2bdf7c53f76bed063f55b8 # v2.1.2
+        uses: fdawgs/workflows/.github/workflows/reusable-code-quality.yml@15c09545397588f9a2ac47db6c6269520ebc983a # v2.2.0
         permissions:
             contents: read
         with:
@@ -64,6 +65,18 @@ The workflow can be configured with the following inputs:
 - `lint`: A boolean value indicating whether to run linting (default: `false`)
 
 If `lint` is set to `true`, the workflow will run linting using ESLint, Prettier, and Licensee licensing checker, and requires a `package.json` file with the [following scripts](./.github/workflows/reusable-code-quality.yml).
+
+## Required permissions for callers
+
+When calling these reusable workflows, ensure the calling workflow/job grants at least the required permissions below.
+Reusable workflows cannot escalate permissions beyond what the caller allows.
+
+| Reusable workflow | Required permissions |
+| --- | --- |
+| `reusable-link-check.yml` | `contents: read` |
+| `reusable-code-quality.yml` | `contents: read` |
+| `reusable-ossf-scorecard.yml` | `contents: read`, `id-token: write`, `security-events: write` |
+| `reusable-lock-threads.yml` | `issues: write`, `pull-requests: write` |
 
 ## Contributing
 
