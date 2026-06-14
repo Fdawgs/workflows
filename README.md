@@ -1,7 +1,7 @@
 # workflows
 
 [![GitHub release](https://img.shields.io/github/release/Fdawgs/workflows.svg)](https://github.com/Fdawgs/workflows/releases/latest/)
-[![OSSF Scorecard](https://api.scorecard.dev/projects/github.com/Fdawgs/workflows/badge)](https://ossf.github.io/scorecard-visualizer/#/projects/github.com/Fdawgs/workflows)
+[![OSSF Scorecard](https://api.scorecard.dev/projects/github.com/Fdawgs/workflows/badge)](https://scorecard.dev/viewer/?uri=github.com/Fdawgs/workflows)
 
 > @fdawgs' reusable workflows
 
