@@ -1,15 +1,15 @@
 # workflows
 
-[![GitHub release](https://img.shields.io/github/release/Fdawgs/workflows.svg)](https://github.com/Fdawgs/workflows/releases/latest/)
+[![GitHub release](https://img.shields.io/github/v/release/Fdawgs/workflows)](https://github.com/Fdawgs/workflows/releases/latest)
 [![OSSF Scorecard](https://api.scorecard.dev/projects/github.com/Fdawgs/workflows/badge)](https://scorecard.dev/viewer/?uri=github.com/Fdawgs/workflows)
 
 > @fdawgs' reusable workflows
 
 ## Overview
 
-GitHub [introduced reusable workflows](https://github.blog/2021-11-29-github-actions-reusable-workflows-is-generally-available/) on 2021-11-29 which, as the name suggests, are workflows that can be referenced across the entirety of GitHub. A reusable workflow is called by using the `uses` keyword in another workflow.
+GitHub [introduced reusable workflows](https://github.blog/news-insights/product-news/github-actions-reusable-workflows-is-generally-available/) on 2021-11-29 which, as the name suggests, are workflows that can be referenced across the entirety of GitHub. A reusable workflow is called by using the `uses` keyword in another workflow.
 
-For more information, including limitations, [see the GitHub Docs](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows).
+For more information, including limitations, [see the GitHub Docs](https://docs.github.com/en/actions/how-tos/reuse-automations/reuse-workflows).
 
 This repository contains reusable workflows that are used across multiple repositories maintained by @fdawgs. These workflows are designed to be generic enough to be used in other repositories with minimal modification.
 
