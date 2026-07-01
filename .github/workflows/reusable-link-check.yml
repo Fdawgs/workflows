@@ -6,8 +6,7 @@ name: Reusable Link Check
 on:
     workflow_call:
 
-permissions:
-    contents: read
+permissions: {}
 
 jobs:
     link-check:
