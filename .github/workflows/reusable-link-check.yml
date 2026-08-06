@@ -27,3 +27,4 @@ jobs:
                   paths: "**/!(CHANGELOG).md"
                   requireHttps: true
                   retry: true
+                  serverRoot: ${{ github.workspace }}
